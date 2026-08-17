@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello from Jenkins!'
+            }
+        }
+
+        stage('Check') {
+            steps {
+                echo 'Checking the project...'
+            }
+        }
+
+        stage('Complete') {
+            steps {
+                echo 'Task completed!'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'SUCCESS: Pipeline completed!'
+        }
+
+        failure {
+            echo 'FAILURE: Pipeline failed!'
+        }
+    }
+}
